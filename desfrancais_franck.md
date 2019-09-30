@@ -81,3 +81,4 @@ L'id renvoyée est 1001.
 
 On retire un utilisateur avec `gpasswd -d <user> <group>`
 ici `gpasswd -d u3 groupe2`
+u3 n'est plus dans le groupe 2 et ne peux donc plus modifier ou acceder au dossier /home/groupe2 . 
