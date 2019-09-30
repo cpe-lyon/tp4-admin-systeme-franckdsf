@@ -39,3 +39,17 @@ usermod -g groupe1 u2
 usermod -g groupe2 u3
 usermod -g groupe2 u4
 ```
+### 7 - Créez deux répertoires /home/groupe1 et /home/groupe2 pour le contenu commun aux groupes, et mettez en place les permissions permettant aux membres de chaque groupe d’écrire dans le dossier associé.
+
+il faut se rendre dans le dossier /home avec `cd ..` <br>
+puis créer les dossiers avec `sudo mkdir groupe 1` et `sudo mkdir groupe 2`
+
+### 8 - Comment faire pour que, dans ces dossiers, seul le propriétaire d’un fichier ait le droit de renommer ou supprimer ce fichier ?
+
+On modifie le sticky bit (t)
+`sudo chmod +t groupe1` <br>
+`sudo chmod +t groupe2` <br>
+
+### 9 - Pouvez-vous vous connecter en tant que u1 ? Pourquoi ?
+
+`su u1` cependant u1 n'a pas de mot de passe. On peut lui en ajouter un avec `sudo passwd u1`
