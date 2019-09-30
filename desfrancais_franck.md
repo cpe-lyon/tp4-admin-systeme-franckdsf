@@ -52,4 +52,24 @@ On modifie le sticky bit (t)
 
 ### 9 - Pouvez-vous vous connecter en tant que u1 ? Pourquoi ?
 
-`su u1` cependant u1 n'a pas de mot de passe. On peut lui en ajouter un avec `sudo passwd u1`
+On peut se connecter à u1 avec `su u1`. Cependant u1 n'a pas de mot de passe. On peut lui en ajouter un avec `sudo passwd u1`
+
+### 10 - Activez le compte de l’utilisateur u1 et vérifiez que vous pouvez désormais vous connecter avec son compte.
+
+Il faut lui ajouter un mdp avec `sudo passwd u1`
+
+### 11 - Quels sont l’uid et le gid de u1 ?
+
+`uid=1001(u1) gid=1001(groupe1) groups=1001(groupe1)`
+
+### 12 - Quel utilisateur a pour uid 1003 ?
+
+On recupère les données des utilisateurs et on récupère seulement l'utilisateur avec "1003" dans sa ligne. <br>
+`cat /etc/passwd | grep 1003`
+
+### 13 - Quel est l’id du groupe groupe1 ?
+
+`cat /etc/group | grep groupe1`<br>
+L'id renvoyée est 1001.
+
+### 14 -  Quel groupe a pour guid 1002 ?
