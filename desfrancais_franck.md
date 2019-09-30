@@ -60,6 +60,7 @@ Il faut lui ajouter un mdp avec `sudo passwd u1`
 
 ### 11 - Quels sont l’uid et le gid de u1 ?
 
+On l'obtient avec `id`
 `uid=1001(u1) gid=1001(groupe1) groups=1001(groupe1)`
 
 ### 12 - Quel utilisateur a pour uid 1003 ?
@@ -73,3 +74,10 @@ On recupère les données des utilisateurs et on récupère seulement l'utilisat
 L'id renvoyée est 1001.
 
 ### 14 -  Quel groupe a pour guid 1002 ?
+
+`cat /etc/group | grep 1002`
+
+### 15 -  Retirez l’utilisateur u3 du groupe groupe2. Que se passe-t-il ? Expliquez.
+
+On retire un utilisateur avec `gpasswd -d <user> <group>`
+ici `gpasswd -d u3 groupe2`
