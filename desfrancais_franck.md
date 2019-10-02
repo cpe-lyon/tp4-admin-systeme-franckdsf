@@ -211,13 +211,24 @@ commande `chmod 640 fichier`
 
 commande `umask 077 test`<br>
 `mkdir ndir`<br>
-commande `umask 077 dir`
+commande `umask 077 dir`<br>
+On ne peut acceder à aucun des deux.
 
 ### 11- Définissez un umask très permissif qui autorise tout le monde à lire vos fichiers et traverser vos réper- toires, mais n’autorise que vous à écrire. Testez sur un nouveau fichier et un nouveau répertoire.
 
-commande `chmod u=rx,g=wx,o=r fic = chmod 534 -r-x--wx-r--`<br>
-commande `chmod uo+w,g-rx fic = chmod 706 -rwx-x-rw-`
+commande `umask 011 test`<br>
+commande `umask 011 dir`<br>
 
 ### 12- Définissez un umask très restrictif qui interdit à quiconque à part vous l’accès en lecture ou en écriture, ainsi que la traversée de vos répertoires. Testez sur un nouveau fichier et un nouveau répertoire.
 
-### 13- Définissez un umask très restrictif qui interdit à quiconque à part vous l’accès en lecture ou en écriture, ainsi que la traversée de vos répertoires. Testez sur un nouveau fichier et un nouveau répertoire.
+commande `umask 066 test`<br>
+commande `umask 066 dir`<br>
+
+### 13- Transcrivez les commandes suivantes de la notation classique à la notation octale ou vice-versa (vous pourrez vous aider de la commande stat pour valider vos réponses)
+
+commande `chmod u=rx,g=wx,o=r fic` = `chmod 534` = `chmod -r-x--wx-r--`<br>
+commande `chmod uo+w,g-rx fic` = `chmod 706` = `chmod -rwx-x-rw-`<br>
+
+### 14- Affichez les droits sur le programme passwd. Que remarquez-vous ? En affichant les droits du fichier /etc/passwd, pouvez-vous justifier les permissions sur le programme passwd ?
+
+j'ai fait `ls -l passwd` pour afficher les droits sur le programme.
