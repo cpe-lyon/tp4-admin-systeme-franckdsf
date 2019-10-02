@@ -234,4 +234,4 @@ commande `chmod uo+w,g-rx fic` = `chmod 706` = `chmod -rwx-x-rw-`<br>
 `cd /etc`<br>
 j'ai fait `ls -l passwd` pour afficher les droits sur le programme.
 On remarque les droits suivants : `-rw-r--r-- 1 root root` <br>
-Ainsi seul root a le droit d'écriture sur les mot de passes. Les autres (groupe et autres) ne peuvent que le lire.
+Ainsi seul root a le droit d'écriture sur le fichier. Les autres (groupe et autres) ne peuvent que le lire.
