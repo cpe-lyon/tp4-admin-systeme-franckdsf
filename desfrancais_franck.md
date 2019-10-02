@@ -214,7 +214,7 @@ commande `umask 077 test`<br>
 commande `umask 077 dir`<br>
 On ne peut acceder à aucun des deux.
 
-### 11- Définissez un umask très permissif qui autorise tout le monde à lire vos fichiers et traverser vos réper- toires, mais n’autorise que vous à écrire. Testez sur un nouveau fichier et un nouveau répertoire.
+### 11- Définissez un umask très permissif qui autorise tout le monde à lire vos fichiers et traverser vos répertoires, mais n’autorise que vous à écrire. Testez sur un nouveau fichier et un nouveau répertoire.
 
 commande `umask 011 test`<br>
 commande `umask 011 dir`<br>
@@ -231,4 +231,7 @@ commande `chmod uo+w,g-rx fic` = `chmod 706` = `chmod -rwx-x-rw-`<br>
 
 ### 14- Affichez les droits sur le programme passwd. Que remarquez-vous ? En affichant les droits du fichier /etc/passwd, pouvez-vous justifier les permissions sur le programme passwd ?
 
+`cd /etc`<br>
 j'ai fait `ls -l passwd` pour afficher les droits sur le programme.
+On remarque les droits suivants : `-rw-r--r-- 1 root root` <br>
+Ainsi seul root a le droit d'écriture sur les mot de passes. Les autres (groupe et autres) ne peuvent que le lire.
