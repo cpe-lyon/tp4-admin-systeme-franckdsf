@@ -96,16 +96,41 @@ sudo chage -I 30 u4 // le compte sera bloqué 30 jours après expiration du mot 
 
 ### 17- Quel est l’interpréteur de commandes (Shell) de l’utilisateur root ?
 
+L'interpréteur de commandes de l'utilisateur est /bin/bash ( bash ) 
+commande : `echo $SHELL`
 
 ### 18- à quoi correspond l’utilisateur nobody ?
 
+nobody est un compte utilisateur qui possède tous les privilèges que les "autres utilisateurs" ont, sans plus. C'est un compte à qui aucun fichier n'appartient.
+Ce compte est réservé aux commandes qui ne necessitent aucune permission pour avoir un résultat le plus neutre. Le plus souvent réservé aux services vulnérables (httpd, etc).
 
 ### 19- Par défaut, combien de temps la commande sudo conserve-t-elle votre mot de passe en mémoire ? Quelle commande permet de forcer sudo à oublier votre mot de passe ?
 
-
+Le temps par défaut est 15 minute.
+la commande pour forcer sudo à oublier son mot de passe est `sudo -k`.
 
 ## Exercice 2. Gestion des permissions
 
 ### 1- Dans votre $HOME, créez un dossier test, et dans ce dossier un fichier fichier contenant quelques lignes de texte. Quels sont les droits sur test et fichier
 
 ### 2- Retirez tous les droits sur ce fichier (même pour vous), puis essayez de le modifier et de l’afficher en tant que root. Conclusion ?
+
+### 3- Redonnez vous les droits en écriture et exécution sur fichier puis exécutez la commande echo "echo Hello" > fichier. On a vu lors des TP précédents que cette commande remplace le contenu d’un fichier s’il existe déjà. Que peut-on dire au sujet des droits ?
+
+### 4- Placez-vous dans le répertoire test, et retirez-vous le droit en lecture pour ce répertoire. Listez le contenu du répertoire, puis exécutez ou affichez le contenu du fichier fichier. Qu’en déduisez-vous ? Rétablissez le droit en lecture sur test
+
+### 5- Créez dans test un fichier nouveau ainsi qu’un répertoire sstest. Retirez au fichier nouveau et au répertoire test le droit en écriture. Tentez de modifier le fichier nouveau. Rétablissez ensuite le droit en écriture au répertoire test. Tentez de modifier le fichier nouveau, puis de le supprimer. Que pouvez- vous déduire de toutes ces manipulations ?
+
+### 6- Positionnez vous dans votre répertoire personnel, puis retirez le droit en exécution du répertoire test. Tentez de créer, supprimer, ou modifier un fichier dans le répertoire test, de vous y déplacer, d’en lister le contenu, etc...Qu’en déduisez vous quant au sens du droit en exécution pour les répertoires ?
+
+### 7- Rétablissez le droit en exécution du répertoire test. Positionnez vous dans ce répertoire et retirez lui à nouveau le droit d’exécution. Essayez de créer, supprimer et modifier un fichier dans le répertoire test, de vous déplacer dans ssrep, de lister son contenu. Qu’en concluez-vous quant à l’influence des droits que l’on possède sur le répertoire courant ? Peut-on retourner dans le répertoire parent avec ”cd ..” ? Pouvez-vous donner une explication ?
+
+### 8- Rétablissez le droit en exécution du répertoire test. Attribuez au fichier fichier les droits suffisants pour qu’une autre personne de votre groupe puisse y accéder en lecture, mais pas en écriture.
+
+### 9- Définissez un umask très restrictif qui interdit à quiconque à part vous l’accès en lecture ou en écriture, ainsi que la traversée de vos répertoires. Testez sur un nouveau fichier et un nouveau répertoire.
+
+### 10- Définissez un umask très permissif qui autorise tout le monde à lire vos fichiers et traverser vos réper- toires, mais n’autorise que vous à écrire. Testez sur un nouveau fichier et un nouveau répertoire.
+
+### 11- Définissez un umask très restrictif qui interdit à quiconque à part vous l’accès en lecture ou en écriture, ainsi que la traversée de vos répertoires. Testez sur un nouveau fichier et un nouveau répertoire.
+
+### 12- Définissez un umask très restrictif qui interdit à quiconque à part vous l’accès en lecture ou en écriture, ainsi que la traversée de vos répertoires. Testez sur un nouveau fichier et un nouveau répertoire.
