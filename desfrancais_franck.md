@@ -82,3 +82,30 @@ L'id renvoyée est 1001.
 On retire un utilisateur avec `gpasswd -d <user> <group>`
 ici `gpasswd -d u3 groupe2`
 u3 n'est plus dans le groupe 2 et ne peux donc plus modifier ou acceder au dossier /home/groupe2 . 
+
+### 16 - Modifiez le compte de u4 de sorte que :
+#### — il expire au 1er juin 2019 — il faut changer de mot de passe avant 90 jours — il faut attendre 5 jours pour modifier un mot de passe — l’utilisateur est averti 14 jours avant l’expiration de son mot de passe — le compte sera bloqué 30 jours après expiration du mot de passe
+
+```
+sudo usermod --expiredate 06/01/2019 u4  // le mdp expire le  
+sudo chage -M 90 u4  // changer le mdp dans 90 jours
+sudo chage -m 5 u4  // attendre 5j pour pouvoir rechanger le mdp 
+sudo chage -W 14 u4  // avertissement 14 jours avant l’expiration de son mot de passe 
+sudo chage -I 30 u4 // le compte sera bloqué 30 jours après expiration du mot de passe s'il ne change pas son mdp
+```
+
+### 17- Quel est l’interpréteur de commandes (Shell) de l’utilisateur root ?
+
+
+### 18- à quoi correspond l’utilisateur nobody ?
+
+
+### 19- Par défaut, combien de temps la commande sudo conserve-t-elle votre mot de passe en mémoire ? Quelle commande permet de forcer sudo à oublier votre mot de passe ?
+
+
+
+## Exercice 2. Gestion des permissions
+
+### 1- Dans votre $HOME, créez un dossier test, et dans ce dossier un fichier fichier contenant quelques lignes de texte. Quels sont les droits sur test et fichier
+
+### 2- Retirez tous les droits sur ce fichier (même pour vous), puis essayez de le modifier et de l’afficher en tant que root. Conclusion ?
