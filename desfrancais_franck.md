@@ -113,11 +113,25 @@ la commande pour forcer sudo à oublier son mot de passe est `sudo -k`.
 
 ### 1- Dans votre $HOME, créez un dossier test, et dans ce dossier un fichier fichier contenant quelques lignes de texte. Quels sont les droits sur test et fichier
 
+`cd ; sudo mkdir test ; cd test ; nano fichier`
+
+avec `ls -l` dans le $HOME
+les droits du dossier test sont 755 (droits de base pour un dossier sous linux) et les droits du fichier sont 664.
+
 ### 2- Retirez tous les droits sur ce fichier (même pour vous), puis essayez de le modifier et de l’afficher en tant que root. Conclusion ?
+
+dans $HOME
+`chmod 000 test`
+
+Je ne peux pas acceder en tant que user mais je peux y acceder en tant que root. Root passe outre les permissions.
 
 ### 3- Redonnez vous les droits en écriture et exécution sur fichier puis exécutez la commande echo "echo Hello" > fichier. On a vu lors des TP précédents que cette commande remplace le contenu d’un fichier s’il existe déjà. Que peut-on dire au sujet des droits ?
 
+j'ai fait `chmod 300 fichier ; echo "echo hello world" > fichier`. On peut écrire dans le fichier.
+
 ### 4- Placez-vous dans le répertoire test, et retirez-vous le droit en lecture pour ce répertoire. Listez le contenu du répertoire, puis exécutez ou affichez le contenu du fichier fichier. Qu’en déduisez-vous ? Rétablissez le droit en lecture sur test
+
+ça ne va pas marcher car on a pas les droits d'execution. En effet on a effecuté le chmod en tant que `su` les droits d'executions sont attribués à `su` et non pas à mon user. Cependant en Root ça va marcher.
 
 ### 5- Créez dans test un fichier nouveau ainsi qu’un répertoire sstest. Retirez au fichier nouveau et au répertoire test le droit en écriture. Tentez de modifier le fichier nouveau. Rétablissez ensuite le droit en écriture au répertoire test. Tentez de modifier le fichier nouveau, puis de le supprimer. Que pouvez- vous déduire de toutes ces manipulations ?
 
